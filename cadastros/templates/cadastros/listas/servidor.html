@@ -1,0 +1,44 @@
+{% extends 'paginas/modelo-ifpr.html' %}
+
+{% load static %}
+
+{% block conteudo %}
+<h3>
+    Lista de servidores registrados
+    <a href="{% url 'cadastrar-servidor' %}" class="btn btn-primary btn-sm float-right">Adicionar Campo</a>
+</h3>
+
+<hr>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Nome Completo</th>
+            <th>Siape</th>
+            <th>Campus</th>
+            <th>Opções</th>
+        </tr>
+    
+        {% for object in object_list %}
+        <tr>
+            <td>{{ object.nome_completo }}</td>
+            <td>{{ object.siape }}</td>
+            <td>{{ object.campus }}</td>
+            <td>
+                <a href="{% url 'editar-servidor' object.pk %}" class="btn btn-warning btn-sm" title="Editar">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+                <a href="{% url 'excluir-servidor' object.pk %}" class="btn btn-danger btn-sm" title="Excluir">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum servidor registrado.</td>
+        </tr>
+        {% endfor %}
+    
+    </table>
+</div>
+{% endblock %}

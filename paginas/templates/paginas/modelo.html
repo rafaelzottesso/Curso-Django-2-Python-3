@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% block titulo %}
+    <title>:: Progressão de Carreira ::</title>
+    {% endblock %}
+
+    <!-- Importar o Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Importar o Font Awesome -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+</head>
+
+<body class="bg-light py-3">
+
+    <div class="container">
+
+        <!-- Menu -->
+        {% block menu %}
+        <h4>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            Código do seu Menu
+        </h4>
+        <!-- Coloque dentro deste bloco todo o código do menu -->
+        {% endblock %}
+
+        <div class="row">
+
+            {% block lateral %}
+            <div class="col-lg-3 bg-warning">
+                Menu Lateral
+            </div>
+            {% endblock %}
+
+            <div class="col-lg bg-dark">
+                {% block conteudo %}
+                Corpo do site
+                {% endblock %}
+            </div>
+
+        </div>
+
+        <div class="text-center bg-secondary">
+            {% block rodape %}
+            Rodapé
+            {% endblock %}
+        </div>
+
+
+    </div>
+
+
+
+    <!-- A ordem deve ser esta porque ele deve ler primeiro o jQuery -->
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    {% block script %}
+
+    {% endblock %}
+
+
+</body>
+
+</html>

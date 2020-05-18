@@ -1,0 +1,100 @@
+
+/* 
+Cores do IFPR 
+*/
+.bg-ifpr {
+    background-color: #007834;
+}
+
+.text-ifpr {
+    color: #007834;
+}
+
+.border-ifpr {
+    border-color: #007834;
+}
+.bg-ifpr-escuro {
+    background-color: #315C23;
+}
+
+.text-ifpr-escuro {
+    color: #315C23;
+}
+
+.border-ifpr-escuro {
+    border-color: #315C23;
+}
+
+
+/* 
+Tamanhos diferentes para fontes 
+*/
+.font-75 {
+    font-size: 75%;
+}
+
+.font-115 {
+    font-size: 115%;
+}
+
+.font-125 {
+    font-size: 125%;
+}
+
+.font-150 {
+    font-size: 150%;
+}
+
+.font-175 {
+    font-size: 175%;
+}
+
+
+/* 
+Formatação do DataTable 
+*/
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child::before,
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child::before {
+    top: 15px !important;
+}
+
+
+/* 
+Personalização da Barra de menu pra ficar igual do site 
+*/
+.navbar {
+    padding: 0 !important;
+}
+
+.navbar .navbar-brand{
+    padding-left: 10px;
+}
+
+.navbar a.nav-link{
+    color: white !important;
+}
+
+.navbar .nav-item{
+    padding: 3px 5px;
+}
+
+.navbar .nav-item:hover{
+    background-color: #315C23;
+}
+
+
+/* 
+Alerta na validação dos formulários (login com senha errada, por exemplo) 
+*/
+.alert dl, .alert ol, .alert ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+/*
+Largura máxima das tabelas para não ficar mal formatada
+*/
+table td{
+    max-width: 500px;
+}

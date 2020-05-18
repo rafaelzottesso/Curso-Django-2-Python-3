@@ -1,0 +1,47 @@
+{% extends 'paginas/modelo-ifpr.html' %}
+
+{% load static %}
+
+{% block conteudo %}
+<h3>
+    Lista de Atividades registrados
+    <a href="{% url 'cadastrar-atividade' %}" class="btn btn-primary btn-sm float-right">Adicionar atividade</a>
+</h3>
+
+<hr>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Campo</th>
+            <th>Número</th>
+            <th>Descrição</th>
+            <th>Pontuação</th>
+            <th>Detalhe</th>
+            <th>Opções</th>
+        </tr>
+
+        {% for atividade in object_list %}
+        <tr>
+            <td>{{ atividade.campo.nome }}</td>
+            <td>{{ atividade.numero }}</td>
+            <td>{{ atividade.descricao }}</td>
+            <td>{{ atividade.pontos }}</td>
+            <td>{{ atividade.detalhes }}</td>
+            <td>
+                <a href="{% url 'editar-atividade' atividade.pk %}" class="btn btn-warning btn-sm" title="Editar">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+                <a href="{% url 'excluir-atividade' atividade.pk %}" class="btn btn-danger btn-sm" title="Excluir">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhuma atividade registrado.</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+{% endblock %}

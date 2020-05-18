@@ -1,0 +1,28 @@
+{% extends 'paginas/modelo-ifpr.html' %}
+
+{% load static %}
+
+{% block conteudo %}
+<h3>Excluir registros</h3>
+
+<p class="lead">
+    Confirme para exlcuir o registro definitivamente.
+</p>
+
+<hr>
+
+<form action="" method="POST">
+
+    <p>
+        Deseja excluir o registro: <strong>{{ object }}</strong>?
+    </p>
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-danger">Excluir</button>
+
+</form>
+
+{% endblock %}
