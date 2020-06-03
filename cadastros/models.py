@@ -98,11 +98,11 @@ class Comprovante(models.Model):
     quantidade = models.DecimalField(decimal_places=2, max_digits=5)
     data = models.DateField()
     data_final = models.DateField(null=True, blank=True, help_text="Informar apenas se o comprovante for relativo a um período.")
-    arquivo = models.FileField(upload_to=user_path)
+    arquivo = models.FileField(upload_to='pdf/')
     usuario = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
-        return "[{}] {} - {}/{}".format(self.pk, self.servidor, self.progressao, self.atividade)
+        return "[{}] {} - {}/{}".format(self.pk, self.usuario, self.progressao, self.atividade)
 
 
 class Validacao(models.Model):
@@ -113,4 +113,4 @@ class Validacao(models.Model):
     justificativa = models.TextField(max_length=255)
 
     def __str__(self):
-        return "[{}] Pontuação: {}/{} por {}".format(self.comprovante.pk, self.quantidade, self.comprovante.quantidade, self.servidor)
+        return "[{}] Pontuação: {}/{} por {}".format(self.comprovante.pk, self.quantidade, self.comprovante.quantidade, self.validado_por)

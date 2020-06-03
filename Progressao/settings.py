@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'paginas.apps.PaginasConfig',
     'cadastros.apps.CadastrosConfig',
     'usuarios.apps.UsuariosConfig',
+
+    'django_cleanup.apps.CleanupConfig',
     'crispy_forms',
 ]
 
@@ -133,6 +135,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+# Arquivos de Media/upload
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+MEDIA_URL = "/uploads/"
 
 # Configurações de Autenticação
 LOGIN_REDIRECT_URL = 'index'

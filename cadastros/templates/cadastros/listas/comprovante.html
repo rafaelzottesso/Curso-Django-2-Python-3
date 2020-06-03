@@ -18,6 +18,7 @@
             <th>Data</th>
             <th>Data final</th>
             <th>Servidor</th>
+            <th>Arquivo</th>
             <th>Opções</th>
         </tr>
     
@@ -27,7 +28,8 @@
             <td>{{ object.atividade }}</td>
             <td>{{ object.data }}</td>
             <td>{{ object.data_final }}</td>
-            <td>{{ object.servidor }}</td>
+            <td>{{ object.usuario }}</td>
+            <th><a href="{{ object.arquivo.url }}">Ver</a></th>
             <td>
                 <a href="{% url 'editar-comprovante' object.pk %}" class="btn btn-warning btn-sm" title="Editar">
                     <i class="fa fa-pencil" aria-hidden="true"></i>

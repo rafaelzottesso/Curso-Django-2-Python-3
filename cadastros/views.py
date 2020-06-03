@@ -91,10 +91,19 @@ class AtividadeCreate(LoginRequiredMixin, CreateView):
 class ComprovanteCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     model = Comprovante
-    fields = ['progressao', 'atividade',
-              'quantidade', 'data', 'data_final', 'arquivo']
-    template_name = 'cadastros/form.html'
+    fields = ['progressao', 'atividade', 'quantidade', 'data', 'data_final', 'arquivo']
+    template_name = 'cadastros/form-upload.html'
     success_url = reverse_lazy('listar-comprovante')
+
+    def form_valid(self, form):  
+        form.instance.usuario = self.request.user
+        url = super().form_valid(form)
+        return url
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['botao'] = 'Cadastrar'
+        return context
 
 
 class ValidacaoCreate(LoginRequiredMixin, CreateView):
@@ -187,10 +196,19 @@ class AtividadeUpdate(LoginRequiredMixin, UpdateView):
 class ComprovanteUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     model = Comprovante
-    fields = ['progressao', 'atividade',
-              'quantidade', 'data', 'data_final', 'arquivo']
-    template_name = 'cadastros/form.html'
+    fields = ['progressao', 'atividade', 'quantidade', 'data', 'data_final', 'arquivo']
+    template_name = 'cadastros/form-upload.html'
     success_url = reverse_lazy('listar-comprovante')
+
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(
+            Comprovante, pk=self.kwargs['pk'], usuario=self.request.user)
+        return self.object
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['botao'] = 'Salvar'
+        return context
 
 
 class ValidacaoUpdate(LoginRequiredMixin, UpdateView):
