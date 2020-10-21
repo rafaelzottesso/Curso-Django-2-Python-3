@@ -12,6 +12,7 @@
 <div class="table-responsive">
     <table class="table table-striped">
         <tr>
+            <th>ID</th>
             <th>Cidade</th>
             <th>Estado</th>
             <th>Opções</th>
@@ -19,6 +20,7 @@
     
         {% for object in object_list %}
         <tr>
+            <td>{{ object.id }}</td>
             <td>{{ object.nome }}</td>
             <td>{{ object.estado }}</td>
             <td>
