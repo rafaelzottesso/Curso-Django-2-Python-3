@@ -1,7 +1,7 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 
-from .models import Campus, Servidor, Status, Situacao, Classe, Progressao, Campo, Atividade, Comprovante, Validacao
+from .models import Estado, Cidade, Campus, Servidor, Status, Situacao, Classe, Progressao, Campo, Atividade, Comprovante, Validacao
 
 from django.urls import reverse_lazy
 
@@ -291,6 +291,18 @@ class ValidacaoDelete(LoginRequiredMixin, DeleteView):
 
 
 ################# LISTA #################
+
+
+class EstadoList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
+    model = Estado
+    template_name = 'cadastros/listas/estados.html'
+
+
+class CidadeList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
+    model = Cidade
+    template_name = 'cadastros/listas/cidades.html'
 
 
 class CampusList(LoginRequiredMixin, ListView):

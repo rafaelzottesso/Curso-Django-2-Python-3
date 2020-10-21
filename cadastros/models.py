@@ -11,6 +11,21 @@ def user_path(instance, filename):
 
 # Classes (modelos)
 
+class Estado(models.Model):
+    nome = models.CharField(max_length=50)
+    uf = models.CharField(max_length=2, verbose_name='UF')
+
+    def __str__(self):
+        return "{}".format(self.uf)
+
+
+class Cidade(models.Model):
+    nome = models.CharField(max_length=50)
+    estado = models.ForeignKey(Estado, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return "{}".format(self.nome)
+
 
 class Campus(models.Model):
     cidade = models.CharField(max_length=50)

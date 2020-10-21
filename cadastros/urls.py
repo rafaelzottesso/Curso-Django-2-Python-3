@@ -4,7 +4,7 @@ from django.urls import path
 from .views import CampusCreate, StatusCreate, SituacaoCreate, ClasseCreate, ProgressaoCreate, CampoCreate, AtividadeCreate, ComprovanteCreate, ValidacaoCreate
 from .views import CampusUpdate, ServidorUpdate, StatusUpdate, SituacaoUpdate, ClasseUpdate, ProgressaoUpdate, CampoUpdate, AtividadeUpdate, ComprovanteUpdate, ValidacaoUpdate
 from .views import CampusDelete, StatusDelete, SituacaoDelete, ClasseDelete, ProgressaoDelete, CampoDelete, AtividadeDelete, ComprovanteDelete, ValidacaoDelete
-from .views import CampusList, StatusList, SituacaoList, ClasseList, ProgressaoList, CampoList, AtividadeList, ComprovanteList, ValidacaoList
+from .views import EstadoList, CidadeList, CampusList, StatusList, SituacaoList, ClasseList, ProgressaoList, CampoList, AtividadeList, ComprovanteList, ValidacaoList
 
 # Tem que ser urlpatterns porque é padrão do Django
 urlpatterns = [
@@ -37,6 +37,8 @@ urlpatterns = [
     path('excluir/atividade/<int:pk>/', AtividadeDelete.as_view(), name="excluir-atividade"),
     path('excluir/comprovante/<int:pk>/', ComprovanteDelete.as_view(), name="excluir-comprovante"),
 
+    path('listar/estados/', EstadoList.as_view(), name="listar-estado"),
+    path('listar/cidades/', CidadeList.as_view(), name="listar-cidade"),
     path('listar/campus/', CampusList.as_view(), name="listar-campus"),
     path('listar/status/', StatusList.as_view(), name="listar-status"),
     path('listar/situacoes/', SituacaoList.as_view(), name="listar-situacao"),
