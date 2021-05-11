@@ -1,9 +1,11 @@
 from django.contrib import admin
 
 # Importar as classes
-from .models import Campus, Servidor, Status, Situacao, Classe, Progressao, Campo, Atividade, Comprovante, Validacao
+from .models import Cidade, Estado, Campus, Servidor, Status, Situacao, Classe, Progressao, Campo, Atividade, Comprovante, Validacao
 
 # Register your models here.
+admin.site.register(Cidade)
+admin.site.register(Estado)
 admin.site.register(Campus)
 admin.site.register(Servidor)
 admin.site.register(Status)
