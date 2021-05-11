@@ -303,6 +303,7 @@ class CidadeList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     model = Cidade
     template_name = 'cadastros/listas/cidades.html'
+    paginate_by = 10
 
 
 class CampusList(LoginRequiredMixin, ListView):
