@@ -305,6 +305,17 @@ class CidadeList(LoginRequiredMixin, ListView):
     template_name = 'cadastros/listas/cidades.html'
     paginate_by = 10
 
+    def get_queryset(self):
+
+        txt_nome = self.request.GET.get('nome')
+
+        if txt_nome:
+            cidades = Cidade.objects.filter(nome__icontains=txt_nome)
+        else:
+            cidades = Cidade.objects.all()
+
+        return cidades
+
 
 class CampusList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
