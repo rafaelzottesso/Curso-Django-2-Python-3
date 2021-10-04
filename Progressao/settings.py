@@ -143,3 +143,7 @@ MEDIA_URL = "/uploads/"
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
 LOGIN_URL = 'login'
+
+
+# Updade do Django 2 para 3
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
